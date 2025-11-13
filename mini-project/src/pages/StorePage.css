@@ -1,0 +1,97 @@
+/* A general container for the page, providing centering and padding. */
+.store-page-container {
+    max-width: 1200px;
+    margin: 0 auto; /* Centers the content */
+    padding: 2rem;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  }
+  
+  /* Styling for the "Back to Stores" link */
+  .back-link {
+    display: inline-block;
+    margin-bottom: 2rem;
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+    font-size: 1rem;
+  }
+  
+  .back-link:hover {
+    text-decoration: underline;
+  }
+  
+  /* The main header for the page (e.g., "Stationary Mart Inventory") */
+  .store-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #333;
+  }
+  
+  /* The responsive grid that will hold all the item cards */
+  .items-grid {
+    display: grid;
+    /* We use the same powerful 'auto-fit' pattern as the homepage.
+       Item cards are smaller, so we set a minimum of 220px. */
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem; /* The space between each item card */
+  }
+  
+  /* This is the style for a single item card */
+  .item-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    overflow: hidden; /* CRUCIAL: This makes the image respect the rounded corners */
+    display: flex;
+    flex-direction: column; /* Stacks the image on top of the content */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .item-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* The image portion of the card */
+  .item-image {
+    width: 100%;
+    height: 150px;
+    object-fit: cover; /* This prevents the image from stretching or squishing */
+    background-color: #f8f9fa; /* A light background color for placeholders */
+  }
+  
+  /* The container for the text content below the image */
+  .item-content {
+    padding: 1rem;
+    text-align: center;
+  }
+  
+  .item-content h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.2rem;
+    color: #333;
+  }
+  
+  /* Styling the price to make it stand out */
+  .item-price {
+    margin: 0;
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #28a745; /* A pleasant green for the price */
+  }
+  
+  /* Styling for the quantity text */
+  .item-quantity {
+    margin: 0.25rem 0 0 0;
+    color: #6c757d; /* A softer gray for secondary info */
+  }
+  
+  /* A message to display when a store is empty */
+  .no-items-message {
+    grid-column: 1 / -1; /* This makes the message span the full width of the grid */
+    text-align: center;
+    color: #777;
+    font-size: 1.2rem;
+    padding: 3rem;
+  }

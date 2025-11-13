@@ -1,0 +1,114 @@
+
+body {
+margin: 0;
+font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+
+background: linear-gradient(135deg, #1f283e 0%, #2c3e50 100%);
+}
+
+/* This container centers the form vertically and horizontally */
+.login-page-container {
+display: flex;
+justify-content: center;
+align-items: center;
+min-height: 100vh;
+padding: 1rem;
+}
+
+/* The "frosted glass" form wrapper */
+.login-form-wrapper {
+width: 100%;
+max-width: 420px;
+padding: 2.5rem;
+
+/* The Glassmorphism Effect /
+background: rgba(255, 255, 255, 0.08);
+backdrop-filter: blur(10px); / This blurs the background behind the element */
+border: 1px solid rgba(255, 255, 255, 0.2);
+
+border-radius: 12px;
+box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+
+/* A subtle fade-in animation for an interactive feel */
+animation: fadeIn 0.8s ease-in-out;
+}
+
+@keyframes fadeIn {
+from {
+opacity: 0;
+transform: translateY(-20px);
+}
+to {
+opacity: 1;
+transform: translateY(0);
+}
+}
+
+.login-form-wrapper h2 {
+text-align: center;
+margin-bottom: 1rem;
+color: #ffffff;
+font-size: 2rem;
+font-weight: 600;
+}
+
+.login-form-wrapper .subtitle {
+text-align: center;
+margin-bottom: 2rem;
+color: rgba(255, 255, 255, 0.7);
+}
+
+.form-group {
+margin-bottom: 1.5rem;
+}
+
+/* Input fields with a matching semi-transparent style / */
+.form-group input {
+width: 100%;
+padding: 12px 15px;
+background: rgba(255, 255, 255, 0.1);
+border: 1px solid rgba(255, 255, 255, 0.3);
+border-radius: 8px;
+color: #ffffff;
+font-size: 1rem;
+outline: none; 
+transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* A subtle placeholder color */
+.form-group input::placeholder {
+color: rgba(255, 255, 255, 0.5);
+}
+
+/* INTERACTIVE: A "glow" effect when the user clicks into an input */
+.form-group input:focus {
+border-color: #82aaff;
+box-shadow: 0 0 0 3px rgba(130, 170, 255, 0.25);
+}
+
+/* A colorful, gradient button */
+.login-button {
+width: 100%;
+padding: 12px;
+background: linear-gradient(90deg, #36d1dc 0%, #5b86e5 100%);
+border: none;
+border-radius: 8px;
+color: white;
+font-size: 1.1rem;
+font-weight: bold;
+cursor: pointer;
+transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* INTERACTIVE: Make the button "lift up" when hovered */
+.login-button:hover {
+transform: translateY(-2px);
+box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.error-message {
+color: #ff8a80; /* A softer red that works well on dark backgrounds */
+text-align: center;
+margin-top: 1rem;
+font-weight: bold;
+}

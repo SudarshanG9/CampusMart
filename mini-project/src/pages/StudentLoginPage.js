@@ -1,9 +1,10 @@
-// src/pages/StudentLoginPage.js
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import './StudentLoginPage.css'; // <-- 1. IMPORT THE NEW CSS FILE
 
 const StudentLoginPage = () => {
+    // --- All of your existing logic stays exactly the same ---
     const [srn, setSrn] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
@@ -20,28 +21,42 @@ const StudentLoginPage = () => {
         }
     };
 
+    // --- This is the only part that changes ---
     return (
-        // ... JSX for the form is here ...
-        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
-            <div style={{ width: '400px', padding: '2rem', border: '1px solid #ccc', borderRadius: '8px' }}>
-                <h2 style={{ textAlign: 'center' }}>Student Login</h2>
+        <div className="login-page-container">
+            <div className="login-form-wrapper">
+                <h2>Welcome Back</h2>
+                <p className="subtitle">Log in to view the campus inventory.</p>
+                
                 <form onSubmit={handleLogin}>
-                    {/* inputs and button */}
-                    <div style={{ marginBottom: '1rem' }}>
-                        <label>SRN (College ID)</label>
-                        <input type="text" value={srn} onChange={(e) => setSrn(e.target.value)} required style={{ width: '100%', padding: '8px' }} />
+                    <div className="form-group">
+                        <input
+                            type="text"
+                            placeholder="SRN (College ID)"
+                            value={srn}
+                            onChange={(e) => setSrn(e.target.value)}
+                            required
+                        />
                     </div>
-                    <div style={{ marginBottom: '1rem' }}>
-                        <label>Password</label>
-                        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required style={{ width: '100%', padding: '8px' }} />
+                    <div className="form-group">
+                        <input
+                            type="password"
+                            placeholder="Password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            required
+                        />
                     </div>
-                    {error && <p style={{ color: 'red' }}>{error}</p>}
-                    <button type="submit" style={{ width: '100%', padding: '10px' }}>Login</button>
+                    
+                    {error && <p className="error-message">{error}</p>}
+                    
+                    <button type="submit" className="login-button">
+                        Login
+                    </button>
                 </form>
             </div>
         </div>
     );
 };
 
-// Make sure this line exists and is correct
 export default StudentLoginPage;
