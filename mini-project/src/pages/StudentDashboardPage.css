@@ -62,13 +62,13 @@ body {
     
     /* CHANGE: This is the key. A light, semi-transparent background
        creates a "frosted glass" effect that contrasts with the dark page. */
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(26, 222, 212, 0.703);
     backdrop-filter: blur(10px);
     
     /* A brighter border to define the card's edge */
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    border: 3px solid rgba(255, 0, 0, 0.384);
     
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 8px 32px rgba(225, 16, 16, 0.4);
     
     /* The 3D effect, now with a slightly lighter color for the "side" */
     border-bottom: 5px solid rgba(255, 255, 255, 0.15);

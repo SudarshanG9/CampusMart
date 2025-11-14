@@ -24,7 +24,7 @@
   .store-header {
     text-align: center;
     margin-bottom: 2rem;
-    color: #333;
+    color: #ef0000;
   }
   
   /* The responsive grid that will hold all the item cards */
@@ -50,7 +50,7 @@
   
   .item-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 20px rgb(2, 235, 252);
   }
   
   /* The image portion of the card */
@@ -91,7 +91,7 @@
   .no-items-message {
     grid-column: 1 / -1; /* This makes the message span the full width of the grid */
     text-align: center;
-    color: #777;
+    color: #0be020;
     font-size: 1.2rem;
     padding: 3rem;
   }
