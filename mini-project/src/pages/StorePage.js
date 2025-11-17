@@ -26,7 +26,7 @@ const StorePage = () => {
                             />
                             <div className="item-content">
                                 <h3>{item.name}</h3>
-                                <p className="item-price">${item.price.toFixed(2)}</p>
+                                <p className="item-price">₹{item.price.toFixed(2)}</p>
                                 <p className="item-quantity">Quantity: {item.quantity}</p>
                             </div>
                         </div>

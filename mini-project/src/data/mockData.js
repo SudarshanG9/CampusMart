@@ -18,13 +18,14 @@ export const fakeStores = [
 export const fakeItems = {
     // Items are mapped to a store's ID
     store1: [
-        { id: 'item101', name: 'Notebook', quantity: 25, price: 2.50 },
-        { id: 'item102', name: 'Blue Pen', quantity: 150, price: 0.50 },
-        { id: 'item103', name: 'Calculator', quantity: 12, price: 15.00 },
+        { id: 'item101', name: 'Notebook', quantity: 25, price: 60.00 },
+        { id: 'item102', name: 'Blue Book', quantity: 150, price: 20.00 },
+        { id: 'item103', name: 'Calculator', quantity: 12, price: 800.00 },
+        { id: 'item104', name: 'Pen', quantity: 100, price: 50.00 },
     ],
     store2: [
-        { id: 'item201', name: 'Samosa', quantity: 45, price: 1.00 },
-        { id: 'item202', name: 'Coffee', quantity: 'Available', price: 1.25 },
+        { id: 'item201', name: 'Samosa', quantity: 45, price: 20.00 },
+        { id: 'item202', name: 'Coffee', quantity: 'Available', price: 10.00 },
     ],
     store3: [
         { id: 'item301', name: 'Chips', quantity: 80, price: 1.00 },
