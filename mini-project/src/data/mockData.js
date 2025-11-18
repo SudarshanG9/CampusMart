@@ -1,6 +1,3 @@
-// This file simulates our database.
-// The "export" keyword makes these variables available to other files.
-
 export const fakeStudents = [
     { srn: 'STUDENT01', password: 'password123', name: 'Alex' },
     { srn: 'STUDENT02', password: 'password456', name: 'Ben' },
@@ -16,31 +13,34 @@ export const fakeStores = [
 ];
 
 export const fakeItems = {
-    // Items are mapped to a store's ID
-    store1: [
-        { id: 'item101', name: 'Notebook', quantity: 25, price: 60.00 },
-        { id: 'item102', name: 'Blue Book', quantity: 150, price: 20.00 },
-        { id: 'item103', name: 'Calculator', quantity: 12, price: 800.00 },
-        { id: 'item104', name: 'Pen', quantity: 100, price: 50.00 },
+    'Campus Mart': [
+        { id: 'item101', name: 'Notebook', quantity: 25, price: 60.00, imageUrl: '/images/Stationary/Notebook.jpeg' },
+        { id: 'item102', name: 'Blue Book', quantity: 150, price: 20.00, imageUrl: '/images/Stationary/BlueBook.jpeg' },
+        { id: 'item103', name: 'Calculator', quantity: 12, price: 800.00, imageUrl: '/images/Stationary/Calculator.jpeg' },
+        { id: 'item104', name: 'Pen', quantity: 100, price: 50.00, imageUrl: '/images/Stationary/Pen.jpeg' },
     ],
-    store2: [
-        { id: 'item201', name: 'Samosa', quantity: 45, price: 20.00 },
-        { id: 'item202', name: 'Coffee', quantity: 'Available', price: 10.00 },
+    'GJBC Canteen': [
+        { id: 'item201', name: 'Babycorn manchurian', quantity: 45, price: 80.00, imageUrl: '/images/Gjbc/Babycorn_manchurian.jpeg' },
+        // --- THIS IS THE LINE THAT WAS FIXED ---
+        { id: 'item202', name: 'Fried Rice', quantity: 50, price: 100.00, imageUrl: '/images/Gjbc/Fried_rice.jpeg' },
+        { id: 'item203', name: 'Roti', quantity: 70, price: 90.00, imageUrl: '/images/Gjbc/Roti.jpeg' },
     ],
-    store3: [
-        { id: 'item301', name: 'Chips', quantity: 80, price: 1.00 },
-        { id: 'item302', name: 'Chocolate Bar', quantity: 60, price: 1.50 },
+    'Snack Store(BE block)': [
+        { id: 'item301', name: 'Maggi', quantity: 80, price: 50, imageUrl: '/images/Snacks/Maggi.jpeg' },
+        { id: 'item302', name: 'Bun Samosa', quantity: 60, price: 45, imageUrl: '/images/Snacks/BunSamosa.jpeg' },
+        { id: 'item303', name: 'Fries', quantity: 120, price: 60, imageUrl: '/images/Snacks/Fries.jpeg' },
+        { id: 'item304', name: 'Puffs', quantity: 200, price: 30, imageUrl: '/images/Snacks/Puffs.jpeg' },
     ],
-    store4: [
-        { id: 'item401', name: 'Burger', quantity: 30, price: 3.00 },
-        { id: 'item402', name: 'Fries', quantity: 50, price: 2.00 },
+    'Hornbill': [
+        { id: 'item401', name: 'Brownie', quantity: 30, price: 120.00, imageUrl: '/images/Hornbill/Brownie.jpeg' },
+        { id: 'item402', name: 'Sandwich', quantity: 50, price: 90.00, imageUrl: '/images/Hornbill/Sandwich.jpeg' },
     ],
-    store5: [
-        { id: 'item501', name: 'Pasta', quantity: 20, price: 4.00 },
-        { id: 'item502', name: 'Salad', quantity: 25, price: 3.50 },
+    '13th floor': [
+        { id: 'item501', name: 'Masala Dosa', quantity: 20, price: 150.00, imageUrl: '/images/13th_floor/Masala_Dosa.jpeg' },
+        { id: 'item502', name: 'Panner Roll', quantity: 25, price: 120.00, imageUrl: '/images/13th_floor/Panner_roll.jpeg' },
     ],
-    store6: [
-        { id: 'item601', name: 'Chicken Curry', quantity: 15, price: 5.00 },
-        { id: 'item602', name: 'Rice Bowl', quantity: 40, price: 2.50 },
+    'NonVeg food court(GJBC)': [
+        { id: 'item601', name: 'Kebab', quantity: 15, price: 180.00, imageUrl: '/images/Nonveg/Kebab.jpeg' },
+        { id: 'item602', name: 'Shawarma', quantity: 40, price: 140.00, imageUrl: '/images/Nonveg/Shawarma.jpeg' },
     ],
 };

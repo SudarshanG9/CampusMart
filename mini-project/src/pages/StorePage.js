@@ -1,32 +1,54 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { fakeStores, fakeItems } from '../data/mockData';
-import './StorePage.css'; // <-- 1. IMPORT YOUR NEW CSS FILE
+import axios from 'axios';
+import './StorePage.css';
 
 const StorePage = () => {
-    const { storeId } = useParams();
-    const store = fakeStores.find(s => s.id === storeId);
-    const items = fakeItems[storeId] || [];
+    const { storeId } = useParams(); // This 'storeId' is the MongoDB _id from the URL
+    const [store, setStore] = useState(null);
+    const [items, setItems] = useState([]);
+    const [loading, setLoading] = useState(true);
 
-    // 2. APPLY THE NEW CSS CLASSES TO YOUR JSX
+    // This effect runs whenever the storeId in the URL changes
+    useEffect(() => {
+        if (storeId) {
+            setLoading(true);
+            // Fetch the items for this specific store from the backend API
+            axios.get(`http://localhost:5001/api/stores/${storeId}`)
+                .then(response => {
+                    setStore(response.data.store);
+                    setItems(response.data.items);
+                    setLoading(false);
+                })
+                .catch(error => {
+                    console.error('Error fetching store items!', error);
+                    setLoading(false);
+                });
+        }
+    }, [storeId]);
+
+    // Display a loading message while the data is being fetched
+    if (loading) {
+        return <h2 style={{ color: 'white', textAlign: 'center', paddingTop: '5rem' }}>Loading Items...</h2>;
+    }
+
     return (
         <div className="store-page-container">
             <Link to="/dashboard" className="back-link">&larr; Back to Stores</Link>
             <h1 className="store-header">{store ? store.name : 'Store'} Inventory</h1>
-            
             <div className="items-grid">
                 {items.length > 0 ? (
+                    // We now map over the 'items' state variable, which holds live data
                     items.map((item) => (
-                        <div key={item.id} className="item-card">
+                        <div key={item._id} className="item-card">
                             <img 
                                 className="item-image"
-                                // Using a placeholder service for images. We replace spaces with '+' for the URL.
-                                src={`https://via.placeholder.com/300x200?text=${item.name.replace(' ', '+')}`} 
+                                src={item.imageUrl} 
                                 alt={item.name} 
                             />
                             <div className="item-content">
                                 <h3>{item.name}</h3>
-                                <p className="item-price">₹{item.price.toFixed(2)}</p>
+                                <p className="item-price">₹{item.price ? item.price.toFixed(2) : 'N/A'}</p>
                                 <p className="item-quantity">Quantity: {item.quantity}</p>
                             </div>
                         </div>

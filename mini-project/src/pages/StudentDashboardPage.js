@@ -1,34 +1,47 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { fakeStores } from '../data/mockData';
-import './StudentDashboardPage.css'; // This line is correct and imports your styles
+import axios from 'axios'; // We use this to make the API call
+import './StudentDashboardPage.css';
 
 const StudentDashboardPage = () => {
     const navigate = useNavigate();
     const auth = useAuth();
+    // This state will hold the list of stores fetched from the database
+    const [stores, setStores] = useState([]);
 
-    // This is the only part that needs to change.
-    // We are replacing all `style={{...}}` with `className="..."`
+    // This useEffect hook runs once when the component first loads
+    useEffect(() => {
+        // Fetch the list of all stores from your backend API
+        axios.get('http://localhost:5001/api/stores')
+            .then(response => {
+                // When the data arrives, save it into our 'stores' state
+                setStores(response.data);
+            })
+            .catch(error => {
+                console.error("There was an error fetching the stores!", error);
+            });
+    }, []); // The empty array [] ensures this effect runs only one time
+
     return (
-        <div className="dashboard-container">
-            <header className="dashboard-header">
-                <h1>Campus Stores</h1>
-                <button onClick={auth.logout} className="logout-button">
-                    Logout
-                </button>
-            </header>
-
-            <div className="stores-grid">
-                {fakeStores.map((store) => (
-                    <div
-                        key={store.id}
-                        onClick={() => navigate(`/store/${store.id}`)}
-                        className="store-card" // This now applies your 3D neon styles
-                    >
-                        <h2>{store.name}</h2>
-                    </div>
-                ))}
+        <div className="dashboard-page-wrapper">
+            <div className="dashboard-container">
+                <header className="dashboard-header">
+                    <h1>Campus Stores</h1>
+                    <button onClick={auth.logout} className="logout-button">Logout</button>
+                </header>
+                <div className="stores-grid">
+                    {/* We now map over the 'stores' state variable, which holds live data */}
+                    {stores.map((store) => (
+                        <div
+                            key={store._id} // Use the unique _id from MongoDB
+                            onClick={() => navigate(`/store/${store._id}`)} // Pass the unique _id in the URL
+                            className="store-card"
+                        >
+                            <h2>{store.name}</h2>
+                        </div>
+                    ))}
+                </div>
             </div>
         </div>
     );
