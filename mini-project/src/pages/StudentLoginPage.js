@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import './StudentLoginPage.css'; // <-- 1. IMPORT THE NEW CSS FILE
+import './StudentLoginPage.css';
 
 const StudentLoginPage = () => {
     // --- All of your existing logic stays exactly the same ---
@@ -21,39 +21,49 @@ const StudentLoginPage = () => {
         }
     };
 
-    // --- This is the only part that changes ---
+    // --- The JSX is now updated to the new two-column structure ---
     return (
         <div className="login-page-container">
-            <div className="login-form-wrapper">
-                <h2>Welcome Back</h2>
-                <p className="subtitle">Log in to view the campus inventory.</p>
-                
-                <form onSubmit={handleLogin}>
-                    <div className="form-group">
-                        <input
-                            type="text"
-                            placeholder="SRN (College ID)"
-                            value={srn}
-                            onChange={(e) => setSrn(e.target.value)}
-                            required
-                        />
-                    </div>
-                    <div className="form-group">
-                        <input
-                            type="password"
-                            placeholder="Password"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                            required
-                        />
-                    </div>
+            {/* The Left Column (Your Form) */}
+            <div className="login-column">
+                <div className="login-form-wrapper">
+                    <h2>Welcome Back</h2>
+                    <p className="subtitle">Log in to view the campus inventory.</p>
                     
-                    {error && <p className="error-message">{error}</p>}
-                    
-                    <button type="submit" className="login-button">
-                        Login
-                    </button>
-                </form>
+                    <form onSubmit={handleLogin}>
+                        <div className="form-group">
+                            <input
+                                type="text"
+                                placeholder="SRN (College ID)"
+                                value={srn}
+                                onChange={(e) => setSrn(e.target.value)}
+                                required
+                            />
+                        </div>
+                        <div className="form-group">
+                            <input
+                                type="password"
+                                placeholder="Password"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                                required
+                            />
+                        </div>
+                        
+                        {error && <p className="error-message">{error}</p>}
+                        
+                        <button type="submit" className="login-button">
+                            Login
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            {/* The Right Column (Your Branding Canvas) */}
+            <div className="branding-column">
+                <div className="logo"></div> {/* This is a placeholder for your logo */}
+                <h1>Inventory App</h1>
+                <p>Your College Name</p>
             </div>
         </div>
     );
