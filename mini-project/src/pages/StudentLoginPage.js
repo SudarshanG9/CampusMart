@@ -61,9 +61,9 @@ const StudentLoginPage = () => {
 
             {/* The Right Column (Your Branding Canvas) */}
             <div className="branding-column">
-                <div className="logo"></div> {/* This is a placeholder for your logo */}
-                <h1>Inventory App</h1>
-                <p>Your College Name</p>
+                <div className="logo"></div> 
+                <h1>Campus Inventory</h1>
+                <p>PES University</p>
             </div>
         </div>
     );

@@ -95,3 +95,11 @@
     font-size: 1.2rem;
     padding: 3rem;
   }
+
+  /*Reservation Modal Overrides*/
+
+  .reservation-controls { margin-top: 1rem; display: flex; gap: 0.5rem; }
+  .quantity-input { width: 60px; text-align: center; }
+  .reservation-controls button { flex-grow: 1; cursor: pointer; }
+  .time-slider-label { font-size: 0.8rem; margin-top: 0.5rem; display: block; }
+  .time-slider { width: 100%; }

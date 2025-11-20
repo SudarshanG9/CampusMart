@@ -5,7 +5,7 @@ const itemSchema = new mongoose.Schema({
   quantity: { type: Number, required: true, default: 0 },
   price : { type: Number, required: true, default: 0.0 },
   imageUrl: { type: String },
-  // This creates a link between an item and its store
+  // Creates a link between an item and its store
   store: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Store',

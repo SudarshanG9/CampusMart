@@ -1,12 +1,11 @@
 body {
-    /* A single, smooth, elegant linear gradient. This replaces the multi-layered
-       radial gradients to remove the horizontal bands. */
+   
     background: linear-gradient(135deg, #2a17ce 0%, #302b63 50%, #24243e 100%);
     background-attachment: fixed; /* Prevents the gradient from scrolling with content */
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   }
   
-  /* --- General Dashboard Layout --- */
+
   .dashboard-container {
     max-width: 1200px;
     margin: 0 auto;
@@ -22,7 +21,6 @@ body {
     margin-bottom: 2rem;
   }
   
-  /* CHANGE: Make the header text bright white for high contrast */
   .dashboard-header h1 {
     margin: 0;
     font-size: 2rem;
@@ -52,7 +50,6 @@ body {
     gap: 2rem;
   }
   
-  /* --- NEW CONTRASTING 3D STORE CARD --- */
   .store-card {
     position: relative;
     padding: 2rem;
@@ -60,8 +57,7 @@ body {
     cursor: pointer;
     border-radius: 12px;
     
-    /* CHANGE: This is the key. A light, semi-transparent background
-       creates a "frosted glass" effect that contrasts with the dark page. */
+   
     background: rgba(26, 222, 212, 0.703);
     backdrop-filter: blur(10px);
     
@@ -89,8 +85,7 @@ body {
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
   }
   
-  /* CHANGE: Make the store name text pure white for maximum readability.
-     The text shadow adds a subtle "glow" to make it pop. */
+
   .store-card h2 {
     margin: 0;
     font-size: 1.5rem;

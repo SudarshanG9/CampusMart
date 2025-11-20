@@ -4,14 +4,13 @@ body {
     background: linear-gradient(135deg, #0a44d7 0%, #248ef8 100%);
   }
   
-  /* CHANGE: The container is now a flex row instead of a centering box */
   .login-page-container {
     display: flex; /* Creates the side-by-side layout */
     min-height: 100vh;
     width: 100%;
   }
   
-  /* NEW: A wrapper for the left-hand side (the form) */
+
   .login-column {
     flex: 1; /* Makes this column take up 50% of the space */
     display: flex;
@@ -42,7 +41,6 @@ body {
     height: 100%;
   }
   
-  /* NEW: The right-hand side "canvas" for your branding */
   .branding-column {
     flex: 1; /* Makes this column also take up 50% of the space */
     display: flex;
@@ -54,40 +52,35 @@ body {
     background: radial-gradient(circle at center, rgba(45, 20, 20, 0.05) 0%, transparent 70%);
   }
   
-  /* NEW: Placeholder styles for your logo */
   .branding-column .logo {
-    /* You can replace this with your actual logo image */
+
     width: 100px;
     height: 100px;
     background-color: rgba(255, 255, 255, 0.8);
     border-radius: 50%;
     margin-bottom: 1.5rem;
-    /* Add a mask-image property if your logo is a simple shape */
-    /* mask-image: url('path/to/your/logo.svg'); */
-    /* -webkit-mask-image: url('path/to/your/logo.svg'); */
+  
   }
   
   .branding-column h1 {
-    color: #ffffff;
+    color: #f6ff00;
     font-size: 2.5rem;
     font-weight: bold;
     margin: 0;
   }
   
   .branding-column p {
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 1.2rem;
+    color: rgba(241, 241, 4, 0.7);
+    font-size: 2rem;
   }
   
-  /* --- RESPONSIVENESS --- */
-  /* On smaller screens (tablets and phones), stack the layout */
+
   @media (max-width: 992px) {
     .login-page-container {
       flex-direction: column; /* Stacks the columns on top of each other */
     }
   
     .branding-column {
-      /* Hide the branding section on very small screens, or style it differently */
       padding: 3rem 1rem;
     }
   }
@@ -138,7 +131,6 @@ transition: border-color 0.3s ease, box-shadow 0.3s ease;
 color: rgba(255, 255, 255, 0.5);
 }
 
-/* INTERACTIVE: A "glow" effect when the user clicks into an input */
 .form-group input:focus {
 border-color: #82aaff;
 box-shadow: 0 0 0 3px rgba(11, 68, 191, 0.25);
@@ -158,7 +150,6 @@ cursor: pointer;
 transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* INTERACTIVE: Make the button "lift up" when hovered */
 .login-button:hover {
 transform: translateY(-2px);
 box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);

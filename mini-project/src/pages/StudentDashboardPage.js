@@ -21,7 +21,7 @@ const StudentDashboardPage = () => {
             .catch(error => {
                 console.error("There was an error fetching the stores!", error);
             });
-    }, []); // The empty array [] ensures this effect runs only one time
+    }, []); 
 
     return (
         <div className="dashboard-page-wrapper">
@@ -31,7 +31,7 @@ const StudentDashboardPage = () => {
                     <button onClick={auth.logout} className="logout-button">Logout</button>
                 </header>
                 <div className="stores-grid">
-                    {/* We now map over the 'stores' state variable, which holds live data */}
+                   
                     {stores.map((store) => (
                         <div
                             key={store._id} // Use the unique _id from MongoDB

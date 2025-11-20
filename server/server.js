@@ -7,10 +7,7 @@ const app = express();
 const port = process.env.PORT || 5001;
 
 // --- MIDDLEWARE SETUP ---
-// This is the most important part. Middleware runs in the order it is defined.
 
-// 1. CORS Middleware: This MUST come first.
-// It attaches the necessary headers to every response, allowing cross-origin requests.
 app.use(cors());
 
 // 2. JSON Body Parser: This allows your server to understand JSON sent from the frontend.
@@ -26,8 +23,7 @@ connection.once('open', () => {
 
 
 // --- API ROUTES ---
-// These are defined AFTER the middleware. The request will only get here
-// if it has already passed through `cors()` and `express.json()`.
+
 app.use('/api/stores', require('./routes/stores'));
 
 
