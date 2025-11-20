@@ -11,9 +11,9 @@ const StudentLoginPage = () => {
     const navigate = useNavigate();
     const auth = useAuth();
 
-    const handleLogin = (e) => {
+    const handleLogin = async (e) => {
         e.preventDefault();
-        const success = auth.login(srn, password);
+        const success = await auth.login(srn, password);
         if (success) {
             navigate('/dashboard');
         } else {

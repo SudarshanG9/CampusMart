@@ -97,9 +97,45 @@
   }
 
   /*Reservation Modal Overrides*/
-
-  .reservation-controls { margin-top: 1rem; display: flex; gap: 0.5rem; }
-  .quantity-input { width: 60px; text-align: center; }
-  .reservation-controls button { flex-grow: 1; cursor: pointer; }
-  .time-slider-label { font-size: 0.8rem; margin-top: 0.5rem; display: block; }
-  .time-slider { width: 100%; }
+  .reservation-controls {
+    margin-top: 1rem;
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  .quantity-input {
+    width: 60px;
+    padding: 8px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+  
+  .reserve-button {
+    flex-grow: 1; /* This makes the button fill the available space */
+    padding: 8px 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s;
+  }
+  
+  .reserve-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .reserve-button:disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+  }
+  
+  /* A small adjustment to the quantity text for clarity */
+  .item-quantity {
+    margin-top: 0.5rem; /* Add some space above */
+    color: #6c757d;
+    font-weight: bold;
+  }
