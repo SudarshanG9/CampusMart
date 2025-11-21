@@ -13,6 +13,7 @@ const ReservationModal = ({ item, isOpen, onClose, onConfirm }) => {
 
     // --- THIS IS THE FIX ---
     // If the modal isn't open OR if there's no item selected yet, render nothing.
+    // If we don't check for the item too, there is a chance that the store page might process both fetching of item details and signal for the modal to open at split second such that the item may not yet be processed and will be returned as null.
     // This prevents the 'cannot read properties of null' crash.
     if (!isOpen || !item) {
         return null;

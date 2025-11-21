@@ -1,12 +1,6 @@
-// --- DIAGNOSTIC ---
-// If you see this message in your terminal, it PROVES this is the file being loaded.
-console.log("************************************************************");
-console.log("*** EXECUTING THE CORRECT user.model.js WITH 'srn' !!! ***");
-console.log("************************************************************");
-// --- END DIAGNOSTIC ---
-
 const mongoose = require('mongoose');
 
+// The schema is correct and does not need to change
 const userSchema = new mongoose.Schema({
   srn: { 
     type: String, 
@@ -19,5 +13,8 @@ const userSchema = new mongoose.Schema({
   },
 });
 
-const User = mongoose.model('User', userSchema);
-module.exports = User;
+// --- THIS IS THE CHANGE ---
+// We are changing the registered name of the model from 'User' to 'Student'
+const Student = mongoose.model('Student', userSchema);
+
+module.exports = Student;

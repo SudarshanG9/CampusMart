@@ -3,8 +3,11 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import axios from 'axios'; // We use this to make the API call
 import './StudentDashboardPage.css';
+import Header from '../components/Header'; // <-- IMPORT
+import CartModal from '../components/CartModal'; // <-- IMPORT
 
 const StudentDashboardPage = () => {
+    const [isCartOpen, setIsCartOpen] = useState(false); // State to manage cart modal visibility
     const navigate = useNavigate();
     const auth = useAuth();
     // This state will hold the list of stores fetched from the database

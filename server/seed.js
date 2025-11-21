@@ -20,7 +20,7 @@ if (mongoose.models.Item) {
 // Now we can safely import our models, knowing we'll get the latest version
 const Store = require('./models/store.model');
 const Item = require('./models/item.model');
-const User = require('./models/user.model');
+const Student = require('./models/user.model');
 const { fakeStores, fakeItems, fakeStudents } = require(path.join(__dirname, '..', 'mini-project', 'src', 'data', 'mockData.js'));
 
 const seedDB = async () => {
@@ -31,7 +31,7 @@ const seedDB = async () => {
         // Clear existing data
         await Store.deleteMany({});
         await Item.deleteMany({});
-        await User.deleteMany({});
+        await Student.deleteMany({});
         console.log('Cleared existing data.');
 
         // Seed Stores and Items
@@ -72,9 +72,8 @@ const seedDB = async () => {
                 password: hashedPassword
             });
         }
-        await User.insertMany(usersToCreate);
+        await Student.insertMany(usersToCreate); // <-- Use Student here
         console.log(`${usersToCreate.length} student users seeded successfully.`);
-
     } catch (err) {
         console.error('Seeding failed:', err);
     } finally {

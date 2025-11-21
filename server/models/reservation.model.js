@@ -1,10 +1,9 @@
 const mongoose = require('mongoose');
 
 const reservationSchema = new mongoose.Schema({
-    // A reference to the student who made the reservation.
     student: { 
         type: mongoose.Schema.Types.ObjectId, 
-        ref: 'User', // This links to the 'User' collection
+        ref: 'Student', // <-- CHANGE THIS FROM 'User'
         required: true 
     },
     // A reference to the item that was reserved.
