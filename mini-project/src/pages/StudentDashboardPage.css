@@ -1,94 +1,94 @@
 body {
    
-    background: linear-gradient(135deg, #2a17ce 0%, #302b63 50%, #24243e 100%);
-    background-attachment: fixed; /* Prevents the gradient from scrolling with content */
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  }
-  
+  background: linear-gradient(135deg, #2a17ce 0%, #302b63 50%, #24243e 100%);
+  background-attachment: fixed; /* Prevents the gradient from scrolling with content */
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
 
-  .dashboard-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem;
-  }
-  
-  .dashboard-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* A lighter border for the dark theme */
-    margin-bottom: 2rem;
-  }
-  
-  .dashboard-header h1 {
-    margin: 0;
-    font-size: 2rem;
-    color: #ffffff; 
-  }
-  
-  /* The logout button styling is fine as is */
-  .logout-button {
-    padding: 10px 20px;
-    background-color: #dc3545;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-    font-weight: bold;
-    transition: background-color 0.2s ease;
-  }
-  
-  .logout-button:hover {
-    background-color: #c82333;
-  }
-  
-  .stores-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-  }
-  
-  .store-card {
-    position: relative;
-    padding: 2rem;
-    text-align: center;
-    cursor: pointer;
-    border-radius: 12px;
-    
-   
-    background: rgba(26, 222, 212, 0.703);
-    backdrop-filter: blur(10px);
-    
-    /* A brighter border to define the card's edge */
-    border: 3px solid rgba(255, 0, 0, 0.384);
-    
-    box-shadow: 0 8px 32px rgba(225, 16, 16, 0.4);
-    
-    /* The 3D effect, now with a slightly lighter color for the "side" */
-    border-bottom: 5px solid rgba(255, 255, 255, 0.15);
-    
-    transition: all 0.15s ease-out; /* Keep the smooth transitions */
-  }
-  
-  /* The hover and active effects remain the same, but will look better
-     with the new contrasting colors. */
-  .store-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.5);
-  }
-  
-  .store-card:active {
-    transform: translateY(2px);
-    border-bottom-width: 2px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
-  }
-  
 
-  .store-card h2 {
-    margin: 0;
-    font-size: 1.5rem;
-    color: #ffffff;
-    text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
-  }
+.dashboard-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* A lighter border for the dark theme */
+  margin-bottom: 2rem;
+}
+
+.dashboard-header h1 {
+  margin: 0;
+  font-size: 2rem;
+  color: #ffffff; 
+}
+
+/* The logout button styling is fine as is */
+.logout-button {
+  padding: 10px 20px;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: background-color 0.2s ease;
+}
+
+.logout-button:hover {
+  background-color: #c82333;
+}
+
+.stores-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.store-card {
+  position: relative;
+  padding: 2rem;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 12px;
+  
+ 
+  background: rgba(26, 222, 212, 0.703);
+  backdrop-filter: blur(10px);
+  
+  /* A brighter border to define the card's edge */
+  border: 3px solid rgba(255, 0, 0, 0.384);
+  
+  box-shadow: 0 8px 32px rgba(225, 16, 16, 0.4);
+  
+  /* The 3D effect, now with a slightly lighter color for the "side" */
+  border-bottom: 5px solid rgba(255, 255, 255, 0.15);
+  
+  transition: all 0.15s ease-out; /* Keep the smooth transitions */
+}
+
+/* The hover and active effects remain the same, but will look better
+   with the new contrasting colors. */
+.store-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.5);
+}
+
+.store-card:active {
+  transform: translateY(2px);
+  border-bottom-width: 2px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+}
+
+
+.store-card h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #ffffff;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+}

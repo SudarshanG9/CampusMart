@@ -2,20 +2,32 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 import './StorePage.css';
-// This import path must be correct
+
+// Your component imports are perfect
 import ReservationModal from '../components/ReservationModal'; 
+import { useCart } from '../context/CartContext';
+import Header from '../components/Header';
+import CartModal from '../components/CartModal';
+
 
 const StorePage = () => {
+    // --- STATE DECLARATIONS (FIXED) ---
+    // We get the fetchCart function from our new context
+    const { fetchCart } = useCart(); 
+    // State for the CART modal
+    const [isCartOpen, setIsCartOpen] = useState(false); 
+    // State for the RESERVATION modal
+    const [isReservationModalOpen, setIsReservationModalOpen] = useState(false);
+    
+    // Your existing state is perfect
     const { storeId } = useParams();
     const [store, setStore] = useState(null);
     const [items, setItems] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [isModalOpen, setIsModalOpen] = useState(false);
     const [selectedItem, setSelectedItem] = useState(null);
 
     
-    // --- We also need to create the `fetchItems` function ---
-    // This avoids code duplication.
+    // --- DATA FETCHING (UNCHANGED) ---
     const fetchItems = async () => {
         setLoading(true);
         try {
@@ -35,73 +47,57 @@ const StorePage = () => {
         }
     }, [storeId]);
 
+
+    // --- MODAL CONTROL FUNCTIONS (UPDATED) ---
     const openReservationModal = (item) => {
         setSelectedItem(item);
-        setIsModalOpen(true);
+        setIsReservationModalOpen(true);
     };
 
     const closeReservationModal = () => {
-        setIsModalOpen(false);
+        setIsReservationModalOpen(false);
         setSelectedItem(null);
     };
 
-    const handleConfirmReservation = async (itemId, quantity, time) => { // Make the function async
+    const handleConfirmReservation = async (itemId, quantity, time) => {
         try {
-            // 1. Get the authentication token from local storage.
-            //    The user must be logged in to make a reservation.
             const token = localStorage.getItem('token');
             if (!token) {
                 alert("You must be logged in to reserve items.");
                 return;
             }
-    
-            // 2. Set up the authorization headers for the API request.
-            //    This tells the backend who is making the reservation.
-            const config = {
-                headers: {
-                    Authorization: `Bearer ${token}`
-                }
-            };
-    
-            // 3. Make the API call to the backend endpoint we created.
-            //    We send the itemId and the quantity the user selected.
-            //    (Note: The 'time' variable isn't needed by the backend, as the backend
-            //    always creates a 10-minute reservation by default for now).
-            await axios.post(
-                'http://localhost:5001/api/reservations', 
-                { itemId, quantity }, 
-                config
-            );
+            const config = { headers: { Authorization: `Bearer ${token}` } };
+            await axios.post('http://localhost:5001/api/reservations', { itemId, quantity }, config);
             
             alert("Item reserved successfully!");
             
-            // 4. (Important UX Improvement)
-            //    After a successful reservation, the item quantity has changed in the database.
-            //    We need to re-fetch the data to show the updated quantity.
-            //    We can do this by creating a simple function.
+            // This part is perfect - it updates both the page and the cart
             fetchItems(); 
+            fetchCart(); 
     
         } catch (error) {
-            // Display a helpful error message if the backend rejects the request
             console.error("Reservation failed:", error);
             alert("Failed to reserve item. " + (error.response?.data?.message || "There was a server error."));
         } finally {
-            // 5. Always close the modal, whether it succeeded or failed.
             closeReservationModal();
         }
     };
-    
-
-  
     
     if (loading) {
         return <h2 style={{ color: 'white', textAlign: 'center', paddingTop: '5rem' }}>Loading Items...</h2>;
     }
 
+    // --- RENDER METHOD (UPDATED JSX) ---
     return (
         <div className="store-page-container">
-            <Link to="/dashboard" className="back-link">&larr; Back to Stores</Link>
-            <h1 className="store-header">{store ? store.name : 'Store'} Inventory</h1>
+            {/* 1. We now use the Header component for the title and cart icon */}
+            <Header title={store ? store.name : 'Store Inventory'} onCartClick={() => setIsCartOpen(true)} />
+
+            {/*<h1 className="store-header">{store ? store.name : 'Store'} Inventory</h1>*/}
+
+
+            <Link to="/dashboard" className="back-link">&larr; Back to All Stores</Link>
+            
             <div className="items-grid">
                 {items.length > 0 ? (
                     items.map((item) => (
@@ -130,11 +126,16 @@ const StorePage = () => {
                 )}
             </div>
             
+            {/* 2. We render BOTH modals. They are invisible until their state is true. */}
             <ReservationModal 
-                isOpen={isModalOpen}
+                isOpen={isReservationModalOpen}
                 onClose={closeReservationModal}
                 onConfirm={handleConfirmReservation}
                 item={selectedItem}
+            />
+            <CartModal
+                isOpen={isCartOpen}
+                onClose={() => setIsCartOpen(false)}
             />
         </div>
     );
